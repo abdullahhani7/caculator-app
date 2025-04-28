@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="display">
+        <div class="time">9:41</div>
+        <div class="calculation" id="calculation">0</div>
+        <div class="result" id="result"></div>
+      </div>
+
+      <div class="buttons">
+        <button class="operator">AC</button>
+        <button class="operator">%</button>
+        <button class="operator">%</button>
+        <button class="operator">÷</button>
+
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator">×</button>
+
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator">-</button>
+
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operator">+</button>
+
+        <button class="operator">○</button>
+        <button>0</button>
+        <button>.</button>
+        <button class="operator">=</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- كودي اللي معدل فيه -->
+
+<!-- // initial currentInput, firstOperand, operator
+let currentInput = "0";
+let firstOperand = null;
+let operator = null;
+let finalResult = 0;
+
+// get elements from UI
+const time = document.querySelector(".time");
+const calculationDisplay = document.querySelector(".calculation");
+const resultDisplay = document.querySelector(".result");
+
+// time method
+setInterval(() => {
+  time.textContent = new Date().toLocaleTimeString();
+}, 1000);
+
+// click event ... handleButton()
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", () => handleButton(button.textContent));
+});
+
+// fn => handleButton() ...
+function handleButton(value) {
+  switch (value) {
+    case "AC":
+      clear();
+      break;
+    case "=":
+      calculate();
+      break;
+    case "+":
+    case "-":
+    case "÷":
+    case "×":
+      handleOperator(value);
+      break;
+    case "Del":
+      deleteLastDigit();
+      break;
+    default:
+      handleNumber(value);
+  }
+}
+
+// fn => handleNumber()
+function handleNumber(value) {
+  currentInput = currentInput === "0" ? value : currentInput + value;
+  calculationDisplay.textContent = firstOperand
+    ? `${firstOperand} ${operator} ${currentInput}`
+    : currentInput;
+}
+
+// fn => handleOperator()
+function handleOperator(value) {
+  if (operator) {
+    firstOperand = finalResult;
+    operator = value;
+    currentInput = "0";
+    calculationDisplay.textContent = `${firstOperand} ${operator}`;
+    return;
+  }
+
+  operator = value;
+  firstOperand = Number(currentInput);
+  currentInput = "0";
+  calculationDisplay.textContent = `${firstOperand} ${operator}`;
+}
+
+// fn => calculate()
+function calculate() {
+  switch (operator) {
+    case "÷":
+      if (currentInput == "0") {
+        alert("Cannot divide by zero");
+        break;
+      }
+      resultDisplay.textContent = firstOperand / currentInput;
+      finalResult = Number(firstOperand / currentInput);
+      break;
+    case "×":
+      resultDisplay.textContent = firstOperand * currentInput;
+      finalResult = Number(firstOperand * currentInput);
+      break;
+    case "-":
+      resultDisplay.textContent = firstOperand - currentInput;
+      finalResult = Number(firstOperand - currentInput);
+      break;
+    case "+":
+      resultDisplay.textContent = Number(firstOperand) + Number(currentInput);
+      finalResult = Number(Number(firstOperand) + Number(currentInput));
+      break;
+  }
+}
+
+// fn => clear()
+function clear() {
+  calculationDisplay.textContent = "0";
+  resultDisplay.textContent = "";
+  currentInput = "0";
+  firstOperand = null;
+  operator = null;
+}
+
+// fn => deleteLastDigit()
+function deleteLastDigit() {
+  if (currentInput.length > 1) {
+    currentInput = currentInput.slice(0, -1);
+  } else {
+    currentInput = "0";
+  }
+  calculationDisplay.textContent = firstOperand
+    ? `${firstOperand} ${operator} ${currentInput}`
+    : currentInput;
+}
+ -->
